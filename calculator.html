@@ -1,0 +1,263 @@
+<html>
+  
+<head>
+  
+<script>
+function addChar(input, character) 
+{
+	if(input.value == null || input.value == "0")
+		
+input.value = character
+	
+else
+		
+input.value += character
+}
+
+
+function cos(form) 
+{
+	form.display.value = Math.cos(form.display.value);
+}
+
+
+function sin(form) 
+{
+	form.display.value = Math.sin(form.display.value);
+}
+
+
+function tan(form) {
+	form.display.value = Math.tan(form.display.value);
+}
+
+
+function ln(form) {
+	form.display.value = Math.log(form.display.value);
+}
+
+
+function deleteChar(input) {
+	input.value = input.value.substring(0, input.value.length - 1)
+}
+
+
+function compute(form) 
+{
+form.display.value = eval(form.display.value);
+  }
+
+
+function checkNum(str)
+ {
+	for (var i = 0; i < str.length; i++)
+ {
+		var ch = str.charAt(i);
+		if (ch < "0" || ch > "9") {
+			if (ch != "/" && ch != "*" && ch != "+" && ch != "-" && ch != "."
+				&& ch != "(" && ch!= ")" && ch != "%") {
+				alert("invalid entry!")
+				return false
+				}
+			}
+		}
+		return true
+}
+
+
+</script>
+
+<style>
+
+* {
+  padding: 0;
+  margin: 5px;
+  text-align: center;
+}
+
+
+.calculator {
+  width: 350px;
+  height: 320px;
+  background-color: #c0c0c0;
+  box-shadow: 0px 0px 0px 10px #666;
+  border: 5px solid black;
+  border-radius: 10px;
+}
+
+#display {
+  width: 320px;
+  height: 40px;
+  text-align: right;
+  background-color: black;
+  border: 3px solid white;
+  font-size: 18px;
+  left: 2px;
+  top: 2px;
+  color: #7fff00;
+}
+
+.btnTop{
+  color: white;
+  background-color: #6f6f6f;
+  font-size: 14px;
+  margin: auto;
+  width: 50px;
+  height: 25px;
+}
+
+.btnNum {
+  color: white;
+  background-color: black;
+  font-size: 14px;
+  margin: auto;
+  width: 50px;
+  height: 25px;
+}
+
+.btnMath {
+  color: white;
+  background-color: #ff4561;
+  font-size: 14px;
+  margin: auto;
+  width: 50px;
+  height: 25px;
+}
+
+.btnOpps {
+  color: white;
+  background-color: #ff9933;
+  font-size: 14px;
+  margin: auto;
+  width: 50px;
+  height: 25px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+</style>
+
+</head>
+
+<body>
+<ul>
+<li><a class="active" href="yes.html">Home</a></li>
+  <li><a class="active" href="yes1.html">learn with fruits</a></li>
+  <li><a href="yes2.html">Learn with animals</a></li>
+  <li><a href="calculator.html">Calculator 1</a></li>
+
+<li><a href="calculator2.html">Calculator 2</a></li>
+  <li><a href="games.html">Play game</a></li>
+</ul>
+<br><br><br>
+<center>
+<form name="sci-calc">
+ 
+<table class="calculator" cellspacing="0" cellpadding="1">
+   
+<tr>
+     
+<td colspan="6"><input id="display" name="display" value="0" size="28" maxlength="25"></td>
+  
+ </tr>
+   
+<tr>
+<td><input type="button" class="btnMath" name="btnMath" value="sin" onclick="if(checkNum(this.form.display.value)) { sin(this.form) }"></td>
+   
+  <td><input type="button" class="btnNum" name="btnNum" value="1" onclick="addChar(this.form.display, '1')"></td>
+     <td><input type="button" class="btnNum" name="btnNum" value="2" onclick="addChar(this.form.display, '2')"></td>
+  
+   <td><input type="button" class="btnNum" name="btnNum" value="3" onclick="addChar(this.form.display, '3')"></td>
+     <td><input type="button" class="btnMath" name="btnMath" value="+" onclick="addChar(this.form.display, '+')"></td>
+     
+ 
+    <td><input type="button" class="btnTop" name="btnTop" value="Clear" onclick="this.form.display.value=  0 "></td>
+   
+  
+     
+     
+     
+   </tr>
+  
+ <tr>
+     
+<td><input type="button" class="btnMath" name="btnMath" value="cos" onclick="if(checkNum(this.form.display.value)) { cos(this.form) }"></td>
+ 
+    <td><input type="button" class="btnNum" name="btnNum" value="4" onclick="addChar(this.form.display, '4')"></td>
+     
+ 
+    <td><input type="button" class="btnNum" name="btnNum" value="5" onclick="addChar(this.form.display, '5')"></td>
+ 
+    <td><input type="button" class="btnNum" name="btnNum" value="6" onclick="addChar(this.form.display, '6')"></td>
+ 
+    <td><input type="button" class="btnMath" name="btnMath" value="-" onclick="addChar(this.form.display, '-')"></td>
+   
+  <td><input type="button" class="btnTop" name="btnTop" value="Back" onclick="deleteChar(this.form.display)"></td>
+
+<tr>
+    
+ <td><input type="button" class="btnMath" name="btnMath" value="tan" onclick="if(checkNum(this.form.display.value)) { tan(this.form) }"></td>
+   
+  <td><input type="button" class="btnNum" name="btnNum" value="7" onclick="addChar(this.form.display, '7')"></td>
+  
+   <td><input type="button" class="btnNum" name="btnNum" value="8" onclick="addChar(this.form.display, '8')"></td>
+  
+   <td><input type="button" class="btnNum" name="btnNum" value="9" onclick="addChar(this.form.display, '9')"></td>
+    
+ <td><input type="button" class="btnMath" name="btnMath" value="*" onclick="addChar(this.form.display, '*')"></td>
+  
+   <td><input type="button" class="btnOpps" name="btnOpps" value="log" onclick="if(checkNum(this.form.display.value)) { ln(this.form) }"></td>
+    
+ 
+   </tr>
+  
+ <tr>
+   
+  <td><input type="button" class="btnMath" name="btnMath" value="&#46;" onclick="addChar(this.form.display, '&#46;')"></td>
+   
+  <td><input type="button" class="btnTop" name="btnTop" value="=" onclick="if(checkNum(this.form.display.value)) { compute(this.form) }"></td>
+   
+  <td><input type="button" class="btnNum" name="btnNum" value="0" onclick="addChar(this.form.display, '0')"></td>
+  
+   <td><input type="button" class="btnMath" name="btnMath" value="^" onclick="addChar(this.form.display, '/')"></td>
+   
+  
+     <td><input type="button" class="btnMath" name="btnMath" value="/" onclick="addChar(this.form.display, '/')"></td>
+   
+  <td><input type="button" class="btnOpps" name="btnOpps" value="&#960;" onclick="addChar(this.form.display,'3.14159265359')"></td>
+  
+ </tr>
+  
+     
+     
+
+ 
+ 
+ </tabel>
+
+</form>
+
+
+</center>
+</body></HTMl>

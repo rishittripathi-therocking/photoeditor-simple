@@ -1,0 +1,187 @@
+<html>
+<head>
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+<script>
+
+$(document).ready(function(){
+   $("#b").click(function(){
+
+var image = $('img').width();
+var hei = $("img").height();
+    image = image - 10;
+hei= hei-10;
+    $('img').width(image);
+$("img").height(hei);
+});
+});
+
+$(document).ready(function(){
+   $("#a").click(function(){
+   var image = $("img").width();
+   var hei = $("img").height();
+    image = image + 10;
+hei= hei+10;
+    $("img").width(image);
+$("img").height(hei);
+});
+});
+$(document).ready(function(){
+   $("#c").click(function(){
+    $("img").width(300);
+$("img").height(300);
+});
+});
+</script>
+<style type="text/css">
+        #imagediv {
+            margin: 0 auto;
+            height: 450px;
+            width: 800px;
+            overflow: hidden;
+        }
+img {
+  margin-top:30px;
+}
+#main {
+  width: 640px;
+  margin: 10px auto;
+  font-family: 'Coda', cursive;
+}
+
+p{ text-align: center; }
+
+#loading img {
+  display: block;
+  margin: 10px auto;
+}
+
+#slides {
+  display: none;
+}
+
+.toggle {
+  display: none;
+}
+
+.active {
+  display: block;
+  animation: fadein ease-in 1s;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+button:hover {
+  cursor: pointer;
+  background: #333;
+  color: #fff;
+}
+    </style>
+</head>
+<body>
+<div id="imagediv">
+<center>
+<div id="main">
+<div class="toggle">
+<img src="download.jpg" width="300" height="300">
+</div>
+    <div class="toggle">
+      <img src="download1.jpg" width="300" height="300">
+    </div>
+    <div class="toggle">
+      <img src="download2.jpg" width="300" height="300">
+    </div>
+    <div class="toggle">
+      <img src="download3.jpg" width="300" height="300">
+    </div>
+<div class="toggle">
+      <img src="download4.jpg" width="300" height="300">
+    </div>
+<div class="toggle">
+      <img src="download5.jpg" width="300" height="300">
+    </div>
+<div class="toggle">
+      <img src="download6.jpg" width="300" height="300">
+    </div>
+<div class="toggle">
+      <img src="download7.jpg" width="300" height="300">
+    </div>
+<div class="toggle">
+      <img src="download8.jpg" width="300" height="300">
+    </div>
+<div class="toggle">
+      <img src="download9.jpg" width="300" height="300">
+    </div>
+  </div>
+</div>
+</center>
+</div>
+<br>
+<br>
+<center>
+<button id="previous">&elsdot; Previous</button>
+<button id="a">Zoom in</button>&nbsp
+<button id="b">Zoom out</button>
+<button id="c">Actual Size</button>
+<button id="d" onclick="rotateFoo()">Rotate Right</button>
+<button id="e">Rotate Left</button>
+      <button id="next">Next &egsdot;</button>
+<script>
+$(window).on("load", function() {
+  $('#loading').slideUp();
+  $('#slides').fadeIn('slow');
+  var $el = $('.toggle.active');
+  if (!$el.length) {
+    $('.toggle').first().addClass('active');
+  }
+});
+
+$('#previous').click(function() {
+  var $el = $('.active').prev('.toggle');
+  if (!$el.length) 
+  {
+    $el = $('.toggle').last();;
+  }
+  $('.active').removeClass('active');
+  $el.addClass('active');
+});
+
+$('#next').click(function() {
+  var $el = $('.active').next('.toggle');
+  if (!$el.length)
+  {
+    $el = $('.toggle').first();
+  }
+  $('.active').removeClass('active');
+  $el.addClass('active');
+});
+</script>
+<script>
+var rotation = 0;
+
+jQuery.fn.rotate = function(degrees) {
+    $(this).css({'-webkit-transform' : 'rotate('+ degrees +'deg)',
+                 '-moz-transform' : 'rotate('+ degrees +'deg)',
+                 '-ms-transform' : 'rotate('+ degrees +'deg)',
+                 'transform' : 'rotate('+ degrees +'deg)'});
+};
+
+$('#d').click(function() {
+    rotation += 90;
+    $('img').rotate(rotation);
+});
+
+$('#e').click(function() {
+    rotation -= 90;
+    $('img').rotate(rotation);
+});
+</script>
+</center>
+</body>
+</html>  
